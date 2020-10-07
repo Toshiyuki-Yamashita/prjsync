@@ -2,28 +2,20 @@ version: '3.1'
 services:
   redmine:
     image: redmine:2.6
-    restart: always
     ports:
-      - 8080:3000
+      - 8081:3000
     volumes:
-      - ./redmine/files:/usr/src/redmine/files
-      - ./redmine/log:/usr/src/redmine/log
-      - ./redmine/sqlite3:/usr/src/redmine/sqlite
-  jupyter:
-    image: hero/jupyter-langs:latest
-    restart: always
+      - redmine:/usr/src/redmine/files
+      - redmine:/usr/src/redmine/log
+      - redmine:/usr/src/redmine/sqlite
+  jira:
+    image: atlassian/jira-software:latest
     ports:
-      - 8050:8050
-      - 8888:8888
+      - 8080:8080
     volumes:
-      - ./notebooks:/notebooks
-#    environment:
-#      REDMINE_DB_MYSQL: db
-#      REDMINE_DB_PASSWORD: example
-#      REDMINE_SECRET_KEY_BASE: supersecretkey
-#  db:
-#    image: mysql:5.7
-#    restart: always
-#    environment:
-#      MYSQL_ROOT_PASSWORD: example
-#      MYSQL_DATABASE: redmine
+      - jira:/var/atlassian/application-data/jira
+volumes:
+  redmine:
+    driver: local
+  jira:
+    driver: local
