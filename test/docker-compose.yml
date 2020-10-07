@@ -8,14 +8,7 @@ services:
       - redmine:/usr/src/redmine/files
       - redmine:/usr/src/redmine/log
       - redmine:/usr/src/redmine/sqlite
-  jira:
-    image: atlassian/jira-software:latest
-    ports:
-      - 8080:8080
-    volumes:
-      - jira:/var/atlassian/application-data/jira
 volumes:
   redmine:
     driver: local
-  jira:
-    driver: local
+

@@ -1,10 +1,10 @@
-http://localhost:8080/issues.json
-X-Redmine-API-Key: 29517aa4c8af2d41c064181f7e0d17ce5245a0bc
+###
+{{redmineurl}}/issues.json
+X-Redmine-API-Key: {{redminekey}}
+### 
+{{redmineurl}}/issues/1.json?include=journals
+X-Redmine-API-Key: {{redminekey}}
 
 ### 
-http://localhost:8080/issues/1.json?include=journals
-X-Redmine-API-Key: 29517aa4c8af2d41c064181f7e0d17ce5245a0bc
-
-### 
-http://localhost:8080/enumerations/issue_priorities.json
-X-Redmine-API-Key: 29517aa4c8af2d41c064181f7e0d17ce5245a0bc
+{{redmineurl}}/enumerations/issue_priorities.json
+X-Redmine-API-Key: {{redminekey}}

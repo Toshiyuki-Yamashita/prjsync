@@ -9,3 +9,5 @@
 
 # rspec failure tracking
 .rspec_status
+.gitsecret/keys/random_seed
+.vscode/settings.json

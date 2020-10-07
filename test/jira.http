@@ -1,0 +1,3 @@
+###
+GET {{jiraurl}}/rest/api/3/users/search
+Authorization: Basic {{jirakey}}
