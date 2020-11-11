@@ -6,3 +6,12 @@ set -vx
 bundle install
 
 # Do any other automated setup that you need to do here
+rootdir=$(cd $(dirname $0)/..; pwd)
+confdir=${rootdir}/config
+keyfile=${confdir}/rsakey.pem
+pubfile=${confdir}/rsakey.pub
+if [ ! -f $keyfile ]; then
+    openssl genrsa -out $keyfile 1024
+    openssl rsa -in $keyfile -pubout -out $pubfile
+    cat $pubfile
+fi

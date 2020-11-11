@@ -1,0 +1,6 @@
+{
+    "private_key_file":"config/rsakey.pem",
+    "context_path": "",
+    "consumer_key": "",
+    "site": ""
+}
