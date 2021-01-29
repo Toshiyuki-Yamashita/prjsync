@@ -1,0 +1,2 @@
+module Redmine::TopHelper
+end
