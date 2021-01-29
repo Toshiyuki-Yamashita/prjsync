@@ -1,14 +1,29 @@
 version: '3.1'
 services:
-  redmine:
-    image: redmine:2.6
+  db:
+    image: postgres:alpine
     ports:
-      - 8081:3000
+      - 5432:5432
     volumes:
-      - redmine:/usr/src/redmine/files
-      - redmine:/usr/src/redmine/log
-      - redmine:/usr/src/redmine/sqlite
+      - postgres:/var/lib/postgresql/data
+    environment: 
+      POSTGRES_PASSWORD: "passoword"
+  web:
+    build: .
+    command: /bin/sh
+    environment: 
+      WEBPACKER_DEV_SERVER_HOST: "0.0.0.0"
+      RAILS_SERVE_STATIC_FILES: "1"
+      EDITOR: "vim"
+    volumes:
+      - ../apps:/apps
+    ports:
+      - "3000:3000"
+      - "3035:3035"
+    depends_on: 
+      - db
+    tty: true
 volumes:
-  redmine:
+  postgres:
     driver: local
 
